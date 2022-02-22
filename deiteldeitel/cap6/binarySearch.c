@@ -8,6 +8,7 @@
 
 void bubbleSort (unsigned int vet[]);
 size_t binarySearch (const unsigned int vet[],int key, size_t low, size_t high);
+void inSort (int a[], int n);
 
 int main (int argc, const char *argv[])
 {
@@ -19,6 +20,7 @@ int main (int argc, const char *argv[])
 			printf ("%d\t", a[count]);
 		}
 		
+		inSort(a, SIZE);
 		bubbleSort(a);
 		
 		puts("");
@@ -80,7 +82,36 @@ size_t binarySearch (const unsigned int vet[], int key, size_t low, size_t high)
 			//return -1;
 }
 
+void inSort (int a[], int n)
+{
+	int i, j, key;
 
+	for (i = 1; i < n; i++)
+	{
+		key = a[i];
+		j = i - 1;
+
+		while (j >= 0 && key < a[j])
+		{
+			a[j+1] = a[j];
+			j = j - 1;
+		}
+		a[j+1] = key;
+	}
+// immetere printf
+
+puts("Selection sort: ");
+
+for (size_t count = 0; count < n; count++)
+{
+	printf("%d\n", a[count]);
+}
+
+
+
+
+	return;
+}
 
 
 
